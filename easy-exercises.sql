@@ -64,6 +64,82 @@ FROM STATION
 WHERE CITY REGEXP '^[AEIOU]'
 ORDER BY CITY;
 
+--Weather Observation Station 7
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY REGEXP '[aeiou]$';
+
+--Weather Observation Station 8
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY REGEXP '^[AEIOU]'
+  AND CITY REGEXP '[aeiou]$';
+
+-- Weather Observation Station 9
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY NOT REGEXP '^[AEIOU]';
+
+-- Weather Observation Station 10
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY NOT REGEXP '[aeiou]$';
+
+-- Weather Observation Station 11
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY NOT REGEXP '^[AEIOU].*[aeiou]$';
+
+--Weather Observation Station 12
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY NOT REGEXP '^[AEIOU]|[aeiou]$';
+
+-- Higher Than 75 Marks
+SELECT NAME
+FROM STUDENTS
+WHERE MARKS > 75
+ORDER BY RIGHT(NAME,3), ID;
+
+-- Employee Names
+SELECT name
+FROM Employee
+ORDER BY name;
+
+-- Employee Salaries
+SELECT name
+FROM Employee
+WHERE salary > 2000
+  AND months < 10;
+
+-- Type of Triangle
+SELECT CASE
+           WHEN 2 * GREATEST(A,B,C) >= (A+B+C) THEN "Not A Triangle"
+           WHEN A = B AND A = C THEN "Equilateral"
+           WHEN A = B OR A = C OR B = C THEN "Isosceles"
+           ELSE "Scalene"
+       END
+FROM TRIANGLES;
+
+-- Revising Aggregations - The Count Function
+SELECT COUNT(NAME)
+FROM CITY
+WHERE POPULATION > 100000;
+
+-- Revising Aggregations - The Sum Function
+SELECT SUM(POPULATION)
+FROM CITY
+WHERE DISTRICT = 'California';
+
+-- Revising Aggregations - Averages
+SELECT AVG(POPULATION)
+FROM CITY
+WHERE DISTRICT = 'California';
+
+-- Average Population
+SELECT FLOOR(AVG(POPULATION))
+FROM CITY;
+
 -- Weather Observation Station 13
 SELECT ROUND(SUM(LAT_N),4) AS lat
 FROM STATION
