@@ -3,7 +3,7 @@ These are the solutions I coded in SQL for all [HackerRank](https://www.hackerra
 
 Exercises are classified into:
 - [Easy exercises](https://github.com/joisaac/hackerrank-sql-solutions/blob/main/easy-exercises.sql)
-- Medium exercises
+- [Medium exercises](https://github.com/joisaac/hackerrank-sql-solutions/blob/main/medium-exercises.sql)
 - Hard exercises
 
 If you have any comment, suggestion or feedback, feel free to reach out
