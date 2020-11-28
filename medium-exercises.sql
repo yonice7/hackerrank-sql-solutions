@@ -33,3 +33,24 @@ SELECT ROUND(LAT_N,4)
 FROM STATION
 ORDER BY LAT_N ASC
 LIMIT 249,1;
+
+-- Top Competitors
+SELECT h.hacker_id,
+       h.name
+FROM Submissions s
+JOIN Challenges c ON s.challenge_id = c.challenge_id
+JOIN Difficulty d ON c.difficulty_level = d.difficulty_level
+JOIN Hackers h ON s.hacker_id = h.hacker_id
+WHERE d.score = s.score
+  AND c.difficulty_level = d.difficulty_level
+GROUP BY h.hacker_id,
+         h.name
+HAVING COUNT(s.hacker_id) > 1
+ORDER BY COUNT(s.hacker_id) DESC, s.hacker_id ASC;
+
+-- The Report
+SELECT IF(Grade < 8, NULL, Name), Grade, Marks
+FROM Students s
+JOIN Grades g
+WHERE Marks BETWEEN Min_Mark AND Max_Mark
+ORDER BY Grade DESC, Name;
